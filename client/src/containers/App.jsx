@@ -1,9 +1,7 @@
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import Layout from "../layouts/Layout";
-import AdminLayout from "../layouts/AdminLayout";
-import { AdminHome, Home, UserProfile } from "../pages";
-import NewUser from "../pages/admin/NewUser";
+import { Layout, AdminLayout, AuthLayout } from "../layouts";
+import { AdminHome, Authentication, Home, UserProfile } from "../pages";
 
 const App = () => {
 	return (
@@ -22,7 +20,6 @@ const App = () => {
 				</Route>
 
 				{/* admin layout */}
-				{/* admin users */}
 				<Route
 					path="/admin/*"
 					element={<AdminLayout />}
@@ -32,13 +29,17 @@ const App = () => {
 						element={<AdminHome />}
 					/>
 				</Route>
-				<Route
-					path="/newUser"
-					element={<NewUser />}
-				/>
 
 				{/* auth layout*/}
-				<Route path="/auth/*"></Route>
+				<Route
+					path="/auth/*"
+					element={<AuthLayout />}
+				>
+					<Route
+						index
+						element={<Authentication />}
+					/>
+				</Route>
 			</Routes>
 		</Suspense>
 	);
