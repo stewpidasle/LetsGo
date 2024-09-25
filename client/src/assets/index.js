@@ -3,6 +3,7 @@ export { default as Flag1 } from "./images/flag1.png";
 export { default as Logo } from "./images/logo.png";
 export { default as Rewards } from "./images/rewards.png";
 export { default as Avatar } from "./images/avatar.avif";
+export {default as Background } from "./images/bg.jpg"
 
 export { default as Two } from "./images/2.jpg";
 export { default as Three } from "./images/3.png";
