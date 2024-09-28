@@ -40,5 +40,7 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.12"
-  }
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

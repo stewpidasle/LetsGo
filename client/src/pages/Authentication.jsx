@@ -2,15 +2,7 @@ import React, { useCallback } from "react";
 import { Background } from "../assets"
 import { FcGoogle } from 'react-icons/fc'
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth"
-import { auth } from "./firebase"
-
-
-// const provider = new GoogleAuthProvider()
-// provider.addScope("profile")
-// provider.addScope("email")
-
-// await signInWithRedirect(auth, provider)
-
+import { auth } from "../config/firebase.config"
 
 const Authentication = () => {
 	const googleProvider = new GoogleAuthProvider()
@@ -34,12 +26,12 @@ const Authentication = () => {
 				background: `url(${Background})`,
 				backgroundSize: 'cover',
 				backgroundPosition: "center",
-				backgroundRepeat: "no-repeat"
+				backgroundRepeat: "no-repeat",
 			}}
-			className="w-screen h-screen flex items-center justiy-center px-4 py-6"
+			className="w-screen h-screen flex items-center justify-center px-4 py-6"
 		>
 			<div className="w-full lg:w-96 px-4 py-6 rounded-md backdrop-blur-md flex items-center justify-center flex-col gap-8 bg-[rgba(255,255,255,0.1)]">
-				<div className="flex flex-col items-center justifiy-center gap-2">
+				<div className="flex flex-col items-center justifty-center gap-2">
 					<p className="text-2xl text-white">Welcome Back!</p>
 					<p className="text-lg text-gray-200">Sign in to access your store</p>
 				</div>
@@ -52,3 +44,5 @@ const Authentication = () => {
 		</div >
 	);
 };
+
+export default Authentication
