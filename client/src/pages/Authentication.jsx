@@ -3,7 +3,7 @@ import { Background } from "../assets"
 import { FcGoogle } from 'react-icons/fc'
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth"
 import { auth } from "../config/firebase.config"
-
+ 
 const Authentication = () => {
 	const googleProvider = new GoogleAuthProvider()
 

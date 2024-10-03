@@ -1,13 +1,25 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout, AdminLayout, AuthLayout } from "../layouts";
 import { AdminHome, Authentication, Home, UserProfile } from "../pages";
+import { auth } from "../config/firebase.config";
 
 const App = () => {
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((userCred) => {
+			if (userCred) {
+				userCred.getIdToken().then((token) => {
+					console.log({ token });
+				});
+			}
+		});
+		return () => unsubscribe()
+	}, [auth]);
+
 	return (
 		<Suspense fallback={<div>Loading....</div>}>
 			<Routes>
-				{/* client user */}
+				{/* Client user */}
 				<Route element={<Layout />}>
 					<Route
 						path="/"
@@ -19,7 +31,7 @@ const App = () => {
 					/>
 				</Route>
 
-				{/* admin layout */}
+				{/* Admin layout */}
 				<Route
 					path="/admin/*"
 					element={<AdminLayout />}
@@ -30,7 +42,7 @@ const App = () => {
 					/>
 				</Route>
 
-				{/* auth layout*/}
+				{/* Auth layout*/}
 				<Route
 					path="/auth/*"
 					element={<AuthLayout />}
