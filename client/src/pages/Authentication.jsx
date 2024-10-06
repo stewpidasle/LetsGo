@@ -3,7 +3,7 @@ import { Background } from "../assets"
 import { FcGoogle } from 'react-icons/fc'
 import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth"
 import { auth } from "../config/firebase.config"
- 
+
 const Authentication = () => {
 	const googleProvider = new GoogleAuthProvider()
 
@@ -12,13 +12,12 @@ const Authentication = () => {
 			const userCred = await signInWithRedirect(auth, googleProvider);
 			if (userCred) {
 				console.log(userCred);
+				console.log("SUCCESS")
 			}
 		} catch (error) {
 			console.error("Error during sign in:", error);
 		}
-	}, [googleProvider]);
-
-
+	}, []);
 
 	return (
 		<div
@@ -31,7 +30,7 @@ const Authentication = () => {
 			className="w-screen h-screen flex items-center justify-center px-4 py-6"
 		>
 			<div className="w-full lg:w-96 px-4 py-6 rounded-md backdrop-blur-md flex items-center justify-center flex-col gap-8 bg-[rgba(255,255,255,0.1)]">
-				<div className="flex flex-col items-center justifty-center gap-2">
+				<div className="flex flex-col items-center justify-center gap-2">
 					<p className="text-2xl text-white">Welcome Back!</p>
 					<p className="text-lg text-gray-200">Sign in to access your store</p>
 				</div>

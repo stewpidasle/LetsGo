@@ -9,7 +9,7 @@ const App = () => {
 		const unsubscribe = auth.onAuthStateChanged((userCred) => {
 			if (userCred) {
 				userCred.getIdToken().then((token) => {
-					console.log({ token });
+					console.log(token);
 				});
 			}
 		});
